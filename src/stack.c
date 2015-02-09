@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 16:31:32 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/09 18:42:25 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/09 18:49:32 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,10 @@ void	print_stack(int *stack, char *name)
 	i = -1;
 	ft_putstr(name);
 	ft_putstr(" :");
-	while (stack[++i + 1])
+	while (stack[++i])
 	{
-		if (i == 0)
-			ft_putstr(" ");
-		ft_putnbr(stack[i]);
 		ft_putstr(" ");
-	}
-	if (stack[i])
 		ft_putnbr(stack[i]);
+	}
 	ft_putendl("");
 }
