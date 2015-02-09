@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 16:31:32 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/09 18:49:32 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/09 19:28:07 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,22 @@ int	*create_stack(char **av, int ac)
 	if(!(stack = (int *)ft_memalloc(sizeof(int *) * (ac - 1))))
 		print_error ("malloc failed\n");
 	i = -1;
-	while (++i < ac)
+	while (++i < ac - 1)
 		stack[i] = ft_atoi(av[ac - 1 - i]);
 	return (stack);
 }
 
 void	print_stack(int *stack, char *name)
 {
-	int	i;
+//	int	i;
 
-	i = -1;
+//	i = -1;
 	ft_putstr(name);
 	ft_putstr(" :");
-	while (stack[++i])
+	while (*stack)
 	{
 		ft_putstr(" ");
-		ft_putnbr(stack[i]);
+		ft_putnbr(*stack++);
 	}
 	ft_putendl("");
 }
