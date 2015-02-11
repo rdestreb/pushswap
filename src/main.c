@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 15:56:18 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/11 16:23:52 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/11 18:06:26 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,22 +56,38 @@ int	main(int ac, char **av)
 	print_stack(b);
 //	swap(a);
 //	rotate(a);
-	rev_rotate(a);
+//	rev_rotate(a);
+	push(a, b);
 	print_stack(a);
 	print_stack(b);
-	rev_rotate(a);
+	push(a, b);
 	print_stack(a);
 	print_stack(b);
-	rev_rotate(a);
+	push(a, b);
 	print_stack(a);
 	print_stack(b);
-	rev_rotate(a);
+	push(a, b);
 	print_stack(a);
 	print_stack(b);
-	rev_rotate(a);
+	push(a, b);
 	print_stack(a);
 	print_stack(b);
-	rev_rotate(a);
+	push(a, b);
+	print_stack(a);
+	print_stack(b);
+	push(a, b);
+	print_stack(a);
+	print_stack(b);
+	push(a, b);
+	print_stack(a);
+	print_stack(b);
+	push(a, b);
+	print_stack(a);
+	print_stack(b);
+	push(a, b);
+	print_stack(a);
+	print_stack(b);
+	push(b, a);
 	print_stack(a);
 	print_stack(b);
 	ft_memdel((void *)&a);
