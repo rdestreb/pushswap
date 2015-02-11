@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 15:52:46 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/11 19:31:01 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/11 20:49:02 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <limits.h>
 
-typedef struct s_stack t_stack;
+typedef struct s_stack	t_stack;
 
 struct	s_stack
 {
