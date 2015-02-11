@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/10 18:14:14 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/11 16:22:08 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/11 19:30:46 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,37 @@ t_stack	*rotate(t_stack *st)
 	int	i;
 	int	tmp;
 
-	tmp = st->stack[st->size - 1];
-	i = st->size;
-	while (--i > 0)
-		st->stack[i] = st->stack[i - 1];
-	st->stack[i] = tmp;
-	ft_putendl(ft_strjoin("r", st->name));
+	if (st->size > 1)
+	{
+		tmp = st->stack[st->size - 1];
+		i = st->size;
+		while (--i > 0)
+			st->stack[i] = st->stack[i - 1];
+		st->stack[i] = tmp;
+		ft_putendl(ft_strjoin("r", st->name));
+	}
 	return (st);
+}
+
+void	rotate_rotate(t_stack *sta, t_stack *stb)
+{
+	int	i;
+	int	tmp;
+
+	if (sta->size > 1 && stb->size > 1)
+	{
+		tmp = sta->stack[sta->size - 1];
+		i = sta->size;
+		while (--i > 0)
+			sta->stack[i] = sta->stack[i - 1];
+		sta->stack[i] = tmp;
+		tmp = stb->stack[stb->size - 1];
+		i = stb->size;
+		while (--i > 0)
+			stb->stack[i] = stb->stack[i - 1];
+		stb->stack[i] = tmp;
+		ft_putendl("rr");
+	}
 }
 
 t_stack	*rev_rotate(t_stack *st)
@@ -31,11 +55,35 @@ t_stack	*rev_rotate(t_stack *st)
 	int	i;
 	int	tmp;
 
-	tmp = st->stack[0];
-	i = -1;
-	while (++i < st->size - 1)
-		st->stack[i] = st->stack[i + 1];
-	st->stack[i] = tmp;
-	ft_putendl(ft_strjoin("rr", st->name));
+	if (st->size > 1)
+	{
+		tmp = st->stack[0];
+		i = -1;
+		while (++i < st->size - 1)
+			st->stack[i] = st->stack[i + 1];
+		st->stack[i] = tmp;
+		ft_putendl(ft_strjoin("rr", st->name));
+	}
 	return (st);
+}
+
+void	rev_rev(t_stack *sta, t_stack *stb)
+{
+	int	i;
+	int	tmp;
+
+	if (sta->size > 1 && stb->size > 1)
+	{
+		tmp = sta->stack[0];
+		i = -1;
+		while (++i < sta->size - 1)
+			sta->stack[i] = sta->stack[i + 1];
+		sta->stack[i] = tmp;
+		tmp = stb->stack[0];
+		i = -1;
+		while (++i < stb->size - 1)
+			stb->stack[i] = stb->stack[i + 1];
+		stb->stack[i] = tmp;
+		ft_putendl("rrr");
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 15:52:46 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/11 18:02:47 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/11 19:31:01 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ void	print_stack(t_stack *st);
 t_stack	*swap(t_stack *st);
 t_stack	*rotate(t_stack *st);
 t_stack	*rev_rotate(t_stack *st);
-t_stack	*push(t_stack *sender, t_stack *receiver);
+t_stack	*push(t_stack *sender, t_stack *reciever);
+void	swap_swap(t_stack *sta, t_stack *stb);
+void	rotate_rotate(t_stack *sta, t_stack *stb);
+void	rev_rev(t_stack *sta, t_stack *stb);
 
 #endif
