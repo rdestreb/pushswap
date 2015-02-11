@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 15:56:18 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/10 18:04:56 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/11 16:23:52 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,36 @@ void	is_valid(char **av, int ac)
 
 int	main(int ac, char **av)
 {
-	int	*a;
-	int	*b;
+	t_stack	*a;
+	t_stack	*b;
 
 	is_valid(av, ac);
-	a = create_stack(av, ac);
-	is_duplicate(a, ac);
-	if(!(b = (int *)ft_memalloc(sizeof(int *) * (ac - 1))))
-		print_error ("malloc failed\n");
-	print_stack(a, ac - 1, "a");
-	print_stack(b, 0, "b");
-	swap(a, ac - 1);
-	print_stack(a, ac - 1, "a");
-	print_stack(b, 0, "b");
+	a = create_stack(av, ac - 1, "a");
+	b = create_stack(av, ac - 1, "b");
+	b->size = 0;
+	is_duplicate(a);
+	print_stack(a);
+	print_stack(b);
+//	swap(a);
+//	rotate(a);
+	rev_rotate(a);
+	print_stack(a);
+	print_stack(b);
+	rev_rotate(a);
+	print_stack(a);
+	print_stack(b);
+	rev_rotate(a);
+	print_stack(a);
+	print_stack(b);
+	rev_rotate(a);
+	print_stack(a);
+	print_stack(b);
+	rev_rotate(a);
+	print_stack(a);
+	print_stack(b);
+	rev_rotate(a);
+	print_stack(a);
+	print_stack(b);
 	ft_memdel((void *)&a);
 	ft_memdel((void *)&b);
 	return (0);

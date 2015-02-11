@@ -6,7 +6,7 @@
 #    By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/25 10:38:16 by rdestreb          #+#    #+#              #
-#    Updated: 2015/02/10 18:06:23 by rdestreb         ###   ########.fr        #
+#    Updated: 2015/02/11 14:38:16 by rdestreb         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -19,6 +19,7 @@ SCRFILES = $(addprefix $(SRCDIR)/, $(SRC))
 SRC =	main.c \
 		stack.c \
 		swap.c \
+		rotate.c \
 
 OBJS = $(SCRFILES:.c=.o)
 CC = gcc
