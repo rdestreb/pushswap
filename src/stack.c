@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 16:31:32 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/11 14:09:35 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/12 12:24:57 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	is_duplicate(t_stack *st)
 	}
 }
 
-t_stack	*create_stack(char **av, int size, char *name)
+t_stack	*create_stack(char **av, int size, char name)
 {
 	t_stack	*st;
 	int 	i;
@@ -38,9 +38,9 @@ t_stack	*create_stack(char **av, int size, char *name)
 		print_error ("malloc failed\n");
 	st->size = size;
 	st->name = name;
-	if(!(st->stack = (int *)ft_memalloc(sizeof(int *) * (st->size))))
+	if(!(st->stack = (int *)ft_memalloc(sizeof(int) * (st->size))))
 		print_error ("malloc failed\n");
-	if (!(ft_strcmp(st->name, "a")))
+	if (st->name == 'a')
 	{
 		i = -1;
 		while (++i < st->size)
@@ -54,7 +54,7 @@ void	print_stack(t_stack *st)
 	int	i;
 
 	i = -1;
-	ft_putstr(st->name);
+	ft_putchar(st->name);
 	ft_putstr(" :");
 	while (++i < st->size)
 	{

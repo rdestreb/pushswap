@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -6,7 +7,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 15:56:18 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/11 20:31:00 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/12 12:58:01 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,36 +47,32 @@ int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
+	t_ans	*ans;
 
 	is_valid(av, ac);
-	a = create_stack(av, ac - 1, "a");
-	b = create_stack(av, ac - 1, "b");
+	a = create_stack(av, ac - 1, 'a');
+	b = create_stack(av, ac - 1, 'b');
 	b->size = 0;
 	is_duplicate(a);
 	print_stack(a);
 	print_stack(b);
-//	swap(a);
-//	rotate(a);
-//	rev_rotate(a);
+	ans = singleton();
+	swap(a);
+	rotate(a);
+	rev_rotate(a);
 	push(a, b);
-	print_stack(a);
-	print_stack(b);
 	push(a, b);
-	print_stack(a);
-	print_stack(b);
 	push(a, b);
-	print_stack(a);
-	print_stack(b);
 	rev_rev(a, b);
-	print_stack(a);
-	print_stack(b);
 	rotate_rotate(a, b);
-	print_stack(a);
-	print_stack(b);
 	swap_swap(a, b);
+	ft_putnbr(lst_size(ans));
+	ft_putendl("");
+	print_ans();
 	print_stack(a);
 	print_stack(b);
 	ft_memdel((void *)&a);
 	ft_memdel((void *)&b);
+	delete_list(ans);
 	return (0);
 }

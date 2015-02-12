@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/11 16:46:46 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/11 18:05:01 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/12 12:18:50 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ t_stack	*push(t_stack *sender, t_stack *receiver)
 		sender->stack[sender->size - 1] = 0;
 		receiver->size++;
 		sender->size--;
-		ft_putendl(ft_strjoin("p", sender->name));
+		if (sender->name == 'a')
+			add_link("pa");
+		if (sender->name == 'b')
+			add_link("pb");
 	}
 	return (sender);
 }

@@ -6,7 +6,7 @@
 #    By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/25 10:38:16 by rdestreb          #+#    #+#              #
-#    Updated: 2015/02/11 18:05:48 by rdestreb         ###   ########.fr        #
+#    Updated: 2015/02/12 12:04:13 by rdestreb         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -21,6 +21,7 @@ SRC =	main.c \
 		swap.c \
 		rotate.c \
 		push.c \
+		list.c \
 
 OBJS = $(SCRFILES:.c=.o)
 CC = gcc

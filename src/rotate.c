@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/10 18:14:14 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/11 19:30:46 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/12 12:22:43 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ t_stack	*rotate(t_stack *st)
 		while (--i > 0)
 			st->stack[i] = st->stack[i - 1];
 		st->stack[i] = tmp;
-		ft_putendl(ft_strjoin("r", st->name));
+		if (st->name == 'a')
+			add_link("ra");
+		if (st->name == 'b')
+			add_link("rb");
 	}
 	return (st);
 }
@@ -46,7 +49,7 @@ void	rotate_rotate(t_stack *sta, t_stack *stb)
 		while (--i > 0)
 			stb->stack[i] = stb->stack[i - 1];
 		stb->stack[i] = tmp;
-		ft_putendl("rr");
+		add_link("rr");
 	}
 }
 
@@ -62,7 +65,10 @@ t_stack	*rev_rotate(t_stack *st)
 		while (++i < st->size - 1)
 			st->stack[i] = st->stack[i + 1];
 		st->stack[i] = tmp;
-		ft_putendl(ft_strjoin("rr", st->name));
+		if (st->name == 'a')
+			add_link("rra");
+		if (st->name == 'b')
+			add_link("rrb");
 	}
 	return (st);
 }
@@ -84,6 +90,6 @@ void	rev_rev(t_stack *sta, t_stack *stb)
 		while (++i < stb->size - 1)
 			stb->stack[i] = stb->stack[i + 1];
 		stb->stack[i] = tmp;
-		ft_putendl("rrr");
+		add_link("rrr");
 	}
 }
