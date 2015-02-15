@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 15:52:46 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/15 13:27:07 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/15 18:03:50 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,19 @@ void	print_stack(t_stack *st);
 t_stack	*swap(t_stack *st);
 t_stack	*rotate(t_stack *st);
 t_stack	*rev_rotate(t_stack *st);
-t_stack	*push(t_stack *sender, t_stack *reciever);
+t_stack	*push(t_stack *sender, t_stack *receiver);
 void	swap_swap(t_stack *sta, t_stack *stb);
 void	rotate_rotate(t_stack *sta, t_stack *stb);
 void	rev_rev(t_stack *sta, t_stack *stb);
 t_ans	*singleton(void);
 t_ans	*add_link(char *cmd);
 int		lst_size(t_ans *lst);
-void	print_ans(void);
+void	print_ans(t_ans *lst);
 void	delete_list(t_ans *lst);
 int		is_sorted(t_stack *a);
 void	sort_2(t_stack *stack);
 void	rot_swap(t_stack *a);
+int		get_min(t_stack *stack);
+void	push_min(t_stack *a, t_stack *b);
 
 #endif

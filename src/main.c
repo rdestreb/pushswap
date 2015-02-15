@@ -7,7 +7,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 15:56:18 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/15 15:39:30 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/15 18:04:07 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,11 @@ void	is_valid(char **av, int ac)
 	}
 }
 
+void	comp_algo()
+{
+
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*a;
@@ -72,8 +77,9 @@ int	main(int ac, char **av)
 	if (is_sorted(a) == -1)
 		return (0);
 	ans = singleton();
-	rot_swap(a);
-	print_ans();
+//	rot_swap(a);
+	push_min(a, b);
+	print_ans(ans);
 	printf("nb_cmd = %d\n", lst_size(ans));
 	print_stack(a);
 	print_stack(b);
