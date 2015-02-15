@@ -7,17 +7,30 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 15:56:18 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/12 12:58:01 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/15 15:39:30 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
-
+#include <stdio.h>
 void	print_error(char *msg)
 {
 	ft_putstr_fd("Push_Swap : Error : ", 2);
 	ft_putstr_fd(msg, 2);
 	exit(2);
+}
+
+int	is_sorted(t_stack *a)
+{
+	int	i;
+
+	i = -1;
+	while (++i < a->size - 1)
+	{
+		if (a->stack[i] < a->stack[i + 1])
+			return (i);
+	}
+	return (-1);
 }
 
 void	is_valid(char **av, int ac)
@@ -56,19 +69,12 @@ int	main(int ac, char **av)
 	is_duplicate(a);
 	print_stack(a);
 	print_stack(b);
+	if (is_sorted(a) == -1)
+		return (0);
 	ans = singleton();
-	swap(a);
-	rotate(a);
-	rev_rotate(a);
-	push(a, b);
-	push(a, b);
-	push(a, b);
-	rev_rev(a, b);
-	rotate_rotate(a, b);
-	swap_swap(a, b);
-	ft_putnbr(lst_size(ans));
-	ft_putendl("");
+	rot_swap(a);
 	print_ans();
+	printf("nb_cmd = %d\n", lst_size(ans));
 	print_stack(a);
 	print_stack(b);
 	ft_memdel((void *)&a);
