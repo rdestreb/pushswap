@@ -7,7 +7,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 15:56:18 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/15 18:04:07 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/16 16:38:11 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	is_sorted(t_stack *a)
 	while (++i < a->size - 1)
 	{
 		if (a->stack[i] < a->stack[i + 1])
-			return (i);
+			return (i + 1);
 	}
 	return (-1);
 }
@@ -77,8 +77,8 @@ int	main(int ac, char **av)
 	if (is_sorted(a) == -1)
 		return (0);
 	ans = singleton();
-//	rot_swap(a);
-	push_min(a, b);
+	rot_swap(a);
+//	push_min(a, b);
 	print_ans(ans);
 	printf("nb_cmd = %d\n", lst_size(ans));
 	print_stack(a);

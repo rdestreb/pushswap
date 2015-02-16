@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 15:52:46 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/15 18:03:50 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/16 19:27:28 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int		is_sorted(t_stack *a);
 void	sort_2(t_stack *stack);
 void	rot_swap(t_stack *a);
 int		get_min(t_stack *stack);
+int		get_max(t_stack *stack);
 void	push_min(t_stack *a, t_stack *b);
 
 #endif
