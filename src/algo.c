@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/15 12:21:12 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/16 19:33:48 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/17 18:44:36 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	rot_swap(t_stack *a)
 		if (pos > (a->size / 2) + 1)
 		{
 			nb_rot = a->size - pos;
-			printf("pos : %d\npos_max : %d\nnb_rot : %d\n",pos, get_max(a), nb_rot);
+//			printf("pos 1 : %d\n",  pos);
 //			if (nb_rot == 0 && pos == a->size)
 			//			rotate(a);
 			while ((--nb_rot > -1 && is_sorted(a) != -1) || pos == get_max(a) + 1)
@@ -41,7 +41,8 @@ void	rot_swap(t_stack *a)
 		else
 		{
 			nb_rot = pos;
-			while (--nb_rot > -1 && (is_sorted(a) != -1))
+//			printf("pos : %d\npos_min : %d\nnb_rot : %d\n",pos, get_min(a), nb_rot);
+			while ((--nb_rot > -1 && is_sorted(a) != -1) || rev_is_sorted(a) == get_min(a))
 				rev_rotate(a);
 			if ((is_sorted(a) != -1))
 				swap(a);
@@ -93,9 +94,11 @@ int		get_min(t_stack *stack)
 
 void	push_min(t_stack *a, t_stack *b)
 {
-	while (is_sorted(a) != -1 && b->size == 0)
+	int	pos;
+
+	while ((pos = is_sorted(a) + 1) && b->size == 0)
 	{
-		while (a->size > 0)
+		while (a->size > pos - 1 && is_sorted(a) != -1)
 		{
 			if (get_min(a) == a->size - 1)
 				push(a, b);

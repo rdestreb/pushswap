@@ -7,7 +7,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 15:56:18 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/16 16:38:11 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/17 18:44:56 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,19 @@ int	is_sorted(t_stack *a)
 	{
 		if (a->stack[i] < a->stack[i + 1])
 			return (i + 1);
+	}
+	return (-1);
+}
+
+int	rev_is_sorted(t_stack *a)
+{
+	int	i;
+
+	i = a->size;
+	while (--i > 0)
+	{
+		if (a->stack[i] > a->stack[i - 1])
+			return (i - 1);
 	}
 	return (-1);
 }
@@ -72,17 +85,17 @@ int	main(int ac, char **av)
 	b = create_stack(av, ac - 1, 'b');
 	b->size = 0;
 	is_duplicate(a);
-	print_stack(a);
-	print_stack(b);
+//	print_stack(a);
+//	print_stack(b);
 	if (is_sorted(a) == -1)
 		return (0);
 	ans = singleton();
 	rot_swap(a);
 //	push_min(a, b);
 	print_ans(ans);
-	printf("nb_cmd = %d\n", lst_size(ans));
-	print_stack(a);
-	print_stack(b);
+//	printf("nb_cmd = %d\n", lst_size(ans));
+//	print_stack(a);
+//	print_stack(b);
 	ft_memdel((void *)&a);
 	ft_memdel((void *)&b);
 	delete_list(ans);

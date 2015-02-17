@@ -6,19 +6,19 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 16:31:32 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/12 12:24:57 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/17 11:57:55 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+#include <stdio.h>
 void	is_duplicate(t_stack *st)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while(++i < st->size)
+	while (++i < st->size)
 	{
 		j = 0;
 		while (i + ++j < st->size - 1)

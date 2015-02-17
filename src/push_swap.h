@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 15:52:46 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/16 19:27:28 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/17 18:38:35 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int		lst_size(t_ans *lst);
 void	print_ans(t_ans *lst);
 void	delete_list(t_ans *lst);
 int		is_sorted(t_stack *a);
+int		rev_is_sorted(t_stack *a);
 void	sort_2(t_stack *stack);
 void	rot_swap(t_stack *a);
 int		get_min(t_stack *stack);
