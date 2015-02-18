@@ -6,13 +6,13 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/10 18:14:14 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/12 12:22:43 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/18 12:19:16 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*rotate(t_stack *st)
+t_stack	*rotate(t_stack *st, t_ans *lst)
 {
 	int	i;
 	int	tmp;
@@ -25,14 +25,14 @@ t_stack	*rotate(t_stack *st)
 			st->stack[i] = st->stack[i - 1];
 		st->stack[i] = tmp;
 		if (st->name == 'a')
-			add_link("ra");
+			add_link(lst, "ra");
 		if (st->name == 'b')
-			add_link("rb");
+			add_link(lst, "rb");
 	}
 	return (st);
 }
 
-void	rotate_rotate(t_stack *sta, t_stack *stb)
+void	rotate_rotate(t_stack *sta, t_stack *stb, t_ans *lst)
 {
 	int	i;
 	int	tmp;
@@ -49,11 +49,11 @@ void	rotate_rotate(t_stack *sta, t_stack *stb)
 		while (--i > 0)
 			stb->stack[i] = stb->stack[i - 1];
 		stb->stack[i] = tmp;
-		add_link("rr");
+		add_link(lst, "rr");
 	}
 }
 
-t_stack	*rev_rotate(t_stack *st)
+t_stack	*rev_rotate(t_stack *st, t_ans *lst)
 {
 	int	i;
 	int	tmp;
@@ -66,14 +66,14 @@ t_stack	*rev_rotate(t_stack *st)
 			st->stack[i] = st->stack[i + 1];
 		st->stack[i] = tmp;
 		if (st->name == 'a')
-			add_link("rra");
+			add_link(lst, "rra");
 		if (st->name == 'b')
-			add_link("rrb");
+			add_link(lst, "rrb");
 	}
 	return (st);
 }
 
-void	rev_rev(t_stack *sta, t_stack *stb)
+void	rev_rev(t_stack *sta, t_stack *stb, t_ans *lst)
 {
 	int	i;
 	int	tmp;
@@ -90,6 +90,6 @@ void	rev_rev(t_stack *sta, t_stack *stb)
 		while (++i < stb->size - 1)
 			stb->stack[i] = stb->stack[i + 1];
 		stb->stack[i] = tmp;
-		add_link("rrr");
+		add_link(lst, "rrr");
 	}
 }

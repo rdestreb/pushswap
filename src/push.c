@@ -6,13 +6,13 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/11 16:46:46 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/15 16:40:25 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/18 12:17:14 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*push(t_stack *sender, t_stack *receiver)
+t_stack	*push(t_stack *sender, t_stack *receiver, t_ans *lst)
 {
 	if (sender->size > 0)
 	{
@@ -21,9 +21,9 @@ t_stack	*push(t_stack *sender, t_stack *receiver)
 		receiver->size++;
 		sender->size--;
 		if (receiver->name == 'a')
-			add_link("pa");
+			add_link(lst, "pa");
 		if (receiver->name == 'b')
-			add_link("pb");
+			add_link(lst, "pb");
 	}
 	return (sender);
 }

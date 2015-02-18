@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -6,19 +7,19 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/15 12:21:12 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/17 18:44:36 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/18 13:55:39 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
-void	sort_2(t_stack *stack)
+void	sort_2(t_stack *stack, t_ans *lst)
 {
 	if (is_sorted(stack) == stack->size - 2)
-		swap(stack);
+		swap(stack, lst);
 }
 
-void	rot_swap(t_stack *a)
+void	rot_swap(t_stack *a, t_ans *lst)
 {
 	int pos;
 	int	nb_rot;
@@ -32,22 +33,22 @@ void	rot_swap(t_stack *a)
 //			if (nb_rot == 0 && pos == a->size)
 			//			rotate(a);
 			while ((--nb_rot > -1 && is_sorted(a) != -1) || pos == get_max(a) + 1)
-				rotate(a);
+				rotate(a, lst);
 			if ((is_sorted(a) != -1))
-				swap(a);
+				swap(a, lst);
 			while (++nb_rot < a->size - pos && (is_sorted(a) != -1))
-				rev_rotate(a);
+				rev_rotate(a, lst);
 		}
 		else
 		{
 			nb_rot = pos;
 //			printf("pos : %d\npos_min : %d\nnb_rot : %d\n",pos, get_min(a), nb_rot);
 			while ((--nb_rot > -1 && is_sorted(a) != -1) || rev_is_sorted(a) == get_min(a))
-				rev_rotate(a);
+				rev_rotate(a, lst);
 			if ((is_sorted(a) != -1))
-				swap(a);
+				swap(a, lst);
 			while (++nb_rot < pos && (is_sorted(a) != -1))
-				rotate(a);
+				rotate(a, lst);
 		}
 	}
 }
@@ -92,26 +93,28 @@ int		get_min(t_stack *stack)
 	return (pos_min);
 }
 
-void	push_min(t_stack *a, t_stack *b)
+void	push_min(t_stack *a, t_stack *b, t_ans *lst)
 {
-	int	pos;
+//	int	pos;
 
-	while ((pos = is_sorted(a) + 1) && b->size == 0)
+//	while ((pos = is_sorted(a) + 1) && b->size == 0)
+//	{
+	while (a->size > 1 && is_sorted(a) != -1)
 	{
-		while (a->size > pos - 1 && is_sorted(a) != -1)
+		if (a->size == 2 && is_sorted(a) != -1)
+			swap(a, lst);
+		else if (get_min(a) == a->size - 1 && is_sorted(a) != -1)
+			push(a, b, lst);
+		else
 		{
-			if (get_min(a) == a->size - 1)
-				push(a, b);
+			if (get_min(a) > ((a->size / 2) - 2))
+				rotate(a, lst);
 			else
-			{
-				if (get_min(a) > ((a->size / 2) - 2))
-					rotate(a);
-				else
-					rev_rotate(a);
-			}
+				rev_rotate(a, lst);
 		}
-		while (b->size > 0)
-			push(b, a);
 	}
+	while (b->size > 0)
+		push(b, a, lst);
+//	}
 }
 

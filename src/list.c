@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/12 11:08:57 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/15 18:20:21 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/18 16:01:56 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,17 @@ t_ans	*singleton(void)
 {
 	static t_ans	*lst = NULL;
 
-	if (!(lst))
+	if (!lst)
 		lst = (t_ans *)ft_memalloc(sizeof(t_ans));
 	return (lst);
 }
 
-t_ans	*add_link(char *cmd)
+t_ans	*add_link(t_ans *lst, char *cmd)
 {
 	t_ans	*add;
-	t_ans	*lst;
 
 	add = (t_ans *)ft_memalloc(sizeof(t_ans));
 	add->cmd = ft_strdup(cmd);
-	lst = singleton();
 	while(lst && lst->next)
 		lst = lst->next;
 	lst->next = add;
@@ -61,7 +59,6 @@ void	print_ans(t_ans	*lst)
 	if (lst)
 		ft_putendl(lst->cmd);
 }
-
 
 void	delete_list(t_ans *lst)
 {

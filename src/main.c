@@ -7,7 +7,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 15:56:18 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/17 18:44:56 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/18 14:24:48 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,35 +69,45 @@ void	is_valid(char **av, int ac)
 	}
 }
 
-void	comp_algo()
+void	comp_algo(t_stack *a, t_stack *b, int ac, char **av)
 {
+	t_ans	*ans1;
+	t_ans	*ans2;
 
+	if (is_sorted(a) == -1)
+		return ;
+	ans1 = (t_ans *)ft_memalloc(sizeof(t_ans));
+	ans2 = (t_ans *)ft_memalloc(sizeof(t_ans));
+	rot_swap(a, ans1);
+	ft_memdel((void *)&a);
+	a = create_stack(av, ac - 1, 'a');
+	push_min(a, b, ans2);
+//	print_ans(ans1);
+//	print_ans(ans2);
+	(lst_size(ans1) > lst_size(ans2)) ? print_ans(ans2) : print_ans(ans1);
+//	ft_putnbr(lst_size(ans2));
+	ft_memdel((void *)&a);
+	ft_memdel((void *)&b);
+	delete_list(ans1);
+	delete_list(ans2);
 }
 
 int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_ans	*ans;
 
 	is_valid(av, ac);
 	a = create_stack(av, ac - 1, 'a');
 	b = create_stack(av, ac - 1, 'b');
 	b->size = 0;
 	is_duplicate(a);
+	comp_algo(a, b, ac, av);
 //	print_stack(a);
 //	print_stack(b);
-	if (is_sorted(a) == -1)
-		return (0);
-	ans = singleton();
-	rot_swap(a);
-//	push_min(a, b);
-	print_ans(ans);
+//	ans = singleton();
 //	printf("nb_cmd = %d\n", lst_size(ans));
 //	print_stack(a);
 //	print_stack(b);
-	ft_memdel((void *)&a);
-	ft_memdel((void *)&b);
-	delete_list(ans);
 	return (0);
 }
