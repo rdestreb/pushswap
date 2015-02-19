@@ -26,29 +26,38 @@ void	rot_swap(t_stack *a, t_ans *lst)
 
 	while ((pos = is_sorted(a) + 1))
 	{
+		//printf("rot_swap 1\n");
 		if (pos > (a->size / 2) + 1)
 		{
 			nb_rot = a->size - pos;
-//			printf("pos 1 : %d\n",  pos);
+//			//printf("pos 1 : %d\n",  pos);
 //			if (nb_rot == 0 && pos == a->size)
 			//			rotate(a);
-			while ((--nb_rot > -1 && is_sorted(a) != -1) || pos == get_max(a) + 1)
+			while ((--nb_rot > -1 && is_sorted(a) != -1) || pos == get_max(a) + 1) {
+				//printf("rot_swap 2\n");
 				rotate(a, lst);
+			}
 			if ((is_sorted(a) != -1))
 				swap(a, lst);
-			while (++nb_rot < a->size - pos && (is_sorted(a) != -1))
+			while (++nb_rot < a->size - pos && (is_sorted(a) != -1)) {
+				//printf("rot_swap 3\n");
 				rev_rotate(a, lst);
+			}
 		}
 		else
 		{
 			nb_rot = pos;
-//			printf("pos : %d\npos_min : %d\nnb_rot : %d\n",pos, get_min(a), nb_rot);
-			while ((--nb_rot > -1 && is_sorted(a) != -1) || rev_is_sorted(a) == get_min(a))
+//			//printf("pos : %d\npos_min : %d\nnb_rot : %d\n",pos, get_min(a), nb_rot);
+			while ((--nb_rot > -1 && is_sorted(a) != -1) || rev_is_sorted(a) == get_min(a)) {
+				//printf("rot_swap 4\n");
 				rev_rotate(a, lst);
+			}
 			if ((is_sorted(a) != -1))
 				swap(a, lst);
-			while (++nb_rot < pos && (is_sorted(a) != -1))
+			while (++nb_rot < pos && (is_sorted(a) != -1)) {
+				//printf("rot_swap 5\n");
 				rotate(a, lst);
+			}
 		}
 	}
 }
@@ -64,6 +73,7 @@ int		get_max(t_stack *stack)
 	pos_max = 0;
 	while (++i < stack->size)
 	{
+		//printf("get_max\n");
 		if (stack->stack[i] > max)
 		{
 			max = stack->stack[i];
@@ -84,6 +94,7 @@ int		get_min(t_stack *stack)
 	pos_min = 0;
 	while (++i < stack->size)
 	{
+		//printf("get_min\n");
 		if (stack->stack[i] < min)
 		{
 			min = stack->stack[i];
@@ -101,6 +112,7 @@ void	push_min(t_stack *a, t_stack *b, t_ans *lst)
 //	{
 	while (a->size > 1 && is_sorted(a) != -1)
 	{
+		//printf("push_min 1\n");
 		if (a->size == 2 && is_sorted(a) != -1)
 			swap(a, lst);
 		else if (get_min(a) == a->size - 1 && is_sorted(a) != -1)
@@ -113,8 +125,10 @@ void	push_min(t_stack *a, t_stack *b, t_ans *lst)
 				rev_rotate(a, lst);
 		}
 	}
-	while (b->size > 0)
+	while (b->size > 0) {
+		//printf("push_min 2\n");
 		push(b, a, lst);
+	}
 //	}
 }
 

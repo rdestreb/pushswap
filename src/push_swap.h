@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 15:52:46 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/18 12:28:24 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/19 14:48:55 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ struct	s_ans
 {
 	char 	*cmd;
 	t_ans	*next;
+	t_ans	*last;
 };
 
 void	print_error(char *msg);

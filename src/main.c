@@ -27,6 +27,7 @@ int	is_sorted(t_stack *a)
 	i = -1;
 	while (++i < a->size - 1)
 	{
+		//printf("is_sorted\n");
 		if (a->stack[i] < a->stack[i + 1])
 			return (i + 1);
 	}
@@ -40,6 +41,7 @@ int	rev_is_sorted(t_stack *a)
 	i = a->size;
 	while (--i > 0)
 	{
+		//printf("rev_is_sorted\n");
 		if (a->stack[i] > a->stack[i - 1])
 			return (i - 1);
 	}
@@ -106,7 +108,7 @@ int	main(int ac, char **av)
 //	print_stack(a);
 //	print_stack(b);
 //	ans = singleton();
-//	printf("nb_cmd = %d\n", lst_size(ans));
+//	//printf("nb_cmd = %d\n", lst_size(ans));
 //	print_stack(a);
 //	print_stack(b);
 	return (0);
