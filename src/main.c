@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 15:56:18 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/20 16:24:51 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/20 19:57:49 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	is_valid(char **av, int ac, int nb_opt)
 	while (++arg < ac)
 	{
 		if (ft_strcmp(ft_itoa(ft_atoi(av[arg])), av[arg]))
-			print_error("At least one argument is INT over-limited\n");
+			print_error("At least one argument is not an INT digit\n");
 		i = -1;
 		if (av[arg][0] == '-' && ft_isdigit(av[arg][1]))
 			i = 0;
@@ -65,6 +65,55 @@ void	is_valid(char **av, int ac, int nb_opt)
 			if (!(ft_isdigit(av[arg][i])))
 				print_error("At least one argument is not an INT digit\n");
 		}
+	}
+}
+
+void	display(t_ans *ans1, t_ans *ans2, t_stack *a, t_stack *b)
+{
+	int		*flag;
+
+	flag = get_flag();
+	if (*flag & INS && *flag & R_S)
+	{
+		ft_putstr("Rot-swap : ");
+		print_ans(ans1);
+		ft_putstr("\nInsertion : ");
+		print_ans(ans2);
+	}
+	else if (*flag & R_S)
+		print_ans(ans1);
+	else if (*flag & INS)
+		print_ans(ans2);
+	else
+		(ans1->cpt > ans2->cpt) ? print_ans(ans2) : print_ans(ans1);
+	if (*flag & VERBOSE)
+	{
+		print_stack(a);
+		print_stack(b);
+	}
+	if (*flag & NB_OP)
+	{
+		if (*flag & INS && *flag & R_S)
+		{
+			ft_putstr("\nRot-swap : ");
+			ft_putnbr(ans1->cpt);
+			ft_putendl(" operations done");
+			ft_putstr("Insertion : ");
+			ft_putnbr(ans2->cpt);
+		}
+		else if (*flag & R_S)
+			ft_putnbr(ans1->cpt);
+		else if (*flag & INS)
+			ft_putnbr(ans2->cpt);
+		else
+			ans1->cpt > ans2->cpt ? ft_putnbr(ans2->cpt) : ft_putnbr(ans1->cpt);
+		ft_putendl(" operations done");
+	}
+	if (*flag & BEST_ALGO)
+	{
+		ft_putstr("Best algo : ");
+		(ans1->cpt > ans2->cpt) ? ft_putendl("'Insertion'")
+			: ft_putendl("'Push-Swap'");
 	}
 }
 
@@ -81,30 +130,18 @@ void	comp_algo(t_stack *a, t_stack *b, int ac, char **av)
 	ans1 = (t_ans *)ft_memalloc(sizeof(t_ans));
 	ans2 = (t_ans *)ft_memalloc(sizeof(t_ans));
 	tmp = a->size;
-	rot_swap(a, ans1);
+	if (*flag & VERBOSE)
+	{
+		print_stack(a);
+		print_stack(b);
+	}
+	rot_swap(a, b, ans1);
 	ft_memdel((void *)&a);
 	a = create_stack(av, ac, tmp, 'a');
 	push_min(a, b, ans2);
-	print_ans(ans1);
-	print_ans(ans2);
-//	(ans1->cpt > ans2->cpt) ? print_ans(ans2) : print_ans(ans1);
-//	ft_putnbr(ans2->cpt);
-	if (*flag & VERBOSE)
-		ft_putendl("verbose");
-	if (*flag & NB_OP)
-	{
-		(ans1->cpt > ans2->cpt) ? ft_putnbr(ans2->cpt) : ft_putnbr(ans1->cpt);
-		ft_putendl("");
-	}
-	if (*flag & BEST_ALGO)
-	{
-		(ans1->cpt > ans2->cpt) ? ft_putendl("'Insertion'")
-			: ft_putendl("'Push-Swap'");
-	}
+	display(ans1, ans2, a, b);
 	ft_memdel((void *)&a);
 	ft_memdel((void *)&b);
-//	delete_list(ans1);
-//	delete_list(ans2);
 }
 
 int	main(int ac, char **av)
@@ -119,9 +156,9 @@ int	main(int ac, char **av)
 	b = create_stack(av, ac, ac - 1 - nb_opt, 'b');
 	b->size = 0;
 	is_duplicate(a);
-	comp_algo(a, b, ac, av);
 //	print_stack(a);
 //	print_stack(b);
+	comp_algo(a, b, ac, av);
 //	ans = singleton();
 //	printf("nb_cmd = %d\n", lst_size(ans));
 //	print_stack(a);
