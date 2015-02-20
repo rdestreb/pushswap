@@ -6,12 +6,17 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 15:52:46 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/18 12:28:24 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/20 13:57:52 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+# define NO_FLAG	(1 << 0)
+# define VERBOSE	(1 << 1)
+# define NB_OP		(1 << 2)
+# define BEST_ALGO	(1 << 3)
 
 # include "../libft/libft.h"
 # include <stdlib.h>
@@ -31,12 +36,14 @@ struct	s_stack
 struct	s_ans
 {
 	char 	*cmd;
+	int		cpt;
 	t_ans	*next;
+	t_ans	*last;
 };
 
 void	print_error(char *msg);
 void	is_duplicate(t_stack *st);
-t_stack	*create_stack(char **av, int size, char name);
+t_stack	*create_stack(char **av, int ac, int size, char name);
 void	print_stack(t_stack *st);
 t_stack	*swap(t_stack *st, t_ans *lst);
 t_stack	*rotate(t_stack *st, t_ans *lst);
@@ -57,5 +64,8 @@ int		get_min(t_stack *stack);
 int		get_max(t_stack *stack);
 void	rot_swap(t_stack *a, t_ans *lst);
 void	push_min(t_stack *a, t_stack *b, t_ans *lst);
+
+int    *get_flag(void);
+int    init_flags(int ac, char **av);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 16:31:32 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/17 11:57:55 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/02/20 16:13:10 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	is_duplicate(t_stack *st)
 	while (++i < st->size)
 	{
 		j = 0;
-		while (i + ++j < st->size - 1)
+		while (i + ++j < st->size)
 		{
 			if (st->stack[i] == st->stack[i + j])
 				print_error ("Duplicates in the stack !\n");
@@ -29,22 +29,22 @@ void	is_duplicate(t_stack *st)
 	}
 }
 
-t_stack	*create_stack(char **av, int size, char name)
+t_stack	*create_stack(char **av, int ac, int size, char name)
 {
 	t_stack	*st;
 	int 	i;
 
-	if(!(st = (t_stack *)ft_memalloc(sizeof(t_stack))))
+	if (!(st = (t_stack *)ft_memalloc(sizeof(t_stack))))
 		print_error ("malloc failed\n");
 	st->size = size;
 	st->name = name;
-	if(!(st->stack = (int *)ft_memalloc(sizeof(int) * (st->size))))
+	if (!(st->stack = (int *)ft_memalloc(sizeof(int) * (st->size))))
 		print_error ("malloc failed\n");
 	if (st->name == 'a')
 	{
 		i = -1;
 		while (++i < st->size)
-			st->stack[i] = ft_atoi(av[st->size - i]);
+			st->stack[i] = ft_atoi(av[ac - 1 - i]);
 	}
 	return (st);
 }
