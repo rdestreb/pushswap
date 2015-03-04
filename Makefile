@@ -24,6 +24,8 @@ SRC =	main.c \
 		list.c \
 		algo.c \
 		option.c \
+		verif.c \
+		display.c \
 
 OBJS = $(SCRFILES:.c=.o)
 CC = gcc

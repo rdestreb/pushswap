@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
+
 void	rot_swap(t_stack *a, t_stack *b, t_ans *lst)
 {
 	int pos;
@@ -22,9 +22,6 @@ void	rot_swap(t_stack *a, t_stack *b, t_ans *lst)
 		if (pos > (a->size / 2) + 1)
 		{
 			nb_rot = a->size - pos;
-//			printf("pos 1 : %d\n",  pos);
-//			if (nb_rot == 0 && pos == a->size)
-			//			rotate(a);
 			while ((--nb_rot > -1 && is_sorted(a) != -1) || pos == get_max(a) + 1)
 				rotate(a, b, lst);
 			if ((is_sorted(a) != -1))
@@ -35,7 +32,6 @@ void	rot_swap(t_stack *a, t_stack *b, t_ans *lst)
 		else
 		{
 			nb_rot = pos;
-//			printf("pos : %d\npos_min : %d\nnb_rot : %d\n",pos, get_min(a), nb_rot);
 			while ((--nb_rot > -1 && is_sorted(a) != -1) || rev_is_sorted(a) == get_min(a))
 				rev_rotate(a, b, lst);
 			if ((is_sorted(a) != -1))
@@ -88,10 +84,6 @@ int		get_min(t_stack *stack)
 
 void	push_min(t_stack *a, t_stack *b, t_ans *lst)
 {
-//	int	pos;
-
-//	while ((pos = is_sorted(a) + 1) && b->size == 0)
-//	{
 	while (a->size > 1 && is_sorted(a) != -1)
 	{
 		if (a->size == 2 && is_sorted(a) != -1)
@@ -108,6 +100,5 @@ void	push_min(t_stack *a, t_stack *b, t_ans *lst)
 	}
 	while (b->size > 0)
 		push(b, a, lst);
-//	}
 }
 

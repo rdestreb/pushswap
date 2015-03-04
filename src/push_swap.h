@@ -61,6 +61,7 @@ t_ans	*add_link(t_ans *lst, char *cmd, t_stack *a, t_stack *b);
 int		lst_size(t_ans *lst);
 void	print_ans(t_ans *lst);
 void	delete_list(t_ans *lst);
+void	is_valid(char **av, int ac, int nb_opt);
 int		is_sorted(t_stack *a);
 int		rev_is_sorted(t_stack *a);
 void	sort_2(t_stack *stack, t_ans *lst);

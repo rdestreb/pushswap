@@ -11,23 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-void	is_duplicate(t_stack *st)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (++i < st->size)
-	{
-		j = 0;
-		while (i + ++j < st->size)
-		{
-			if (st->stack[i] == st->stack[i + j])
-				print_error ("Duplicates in the stack !\n");
-		}
-	}
-}
 
 t_stack	*create_stack(char **av, int ac, int size, char name)
 {

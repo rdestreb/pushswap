@@ -23,7 +23,7 @@ int			*get_flag(void)
 
 static void	print_help(void)
 {
-	ft_putstr_fd("usage: ./push_swap -help [-vnbri] [digit1 digit2 ...]\n", 2);
+	ft_putstr_fd("Usage: ./push_swap -help [-vnbri] [digit1 digit2 ...]\n", 2);
 	ft_putstr_fd("  Default action is to sort a list without duplicate of\n", 2);
 	ft_putstr_fd("  integers passed as arguments, then write the actions\n", 2);
 	ft_putstr_fd("  done in stdout. 2 algos are used, compared,\n", 2);
