@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/10 17:57:43 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/20 19:39:58 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/03/30 14:42:45 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ t_stack	*swap(t_stack *st, t_stack *st2, t_ans *lst)
 	}
 	return (st);
 }
-
 
 void	swap_swap(t_stack *sta, t_stack *stb, t_ans *lst)
 {

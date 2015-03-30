@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   verif.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/03/30 14:43:30 by rdestreb          #+#    #+#             */
+/*   Updated: 2015/03/30 14:45:04 by rdestreb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int	is_sorted(t_stack *a)
+int		is_sorted(t_stack *a)
 {
 	int	i;
 
@@ -13,7 +25,7 @@ int	is_sorted(t_stack *a)
 	return (-1);
 }
 
-int	rev_is_sorted(t_stack *a)
+int		rev_is_sorted(t_stack *a)
 {
 	int	i;
 

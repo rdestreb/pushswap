@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/12 11:08:57 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/20 19:45:46 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/03/30 14:29:34 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int		lst_size(t_ans *lst)
 	return (lst->cpt);
 }
 
-void	print_ans(t_ans	*lst)
+void	print_ans(t_ans *lst)
 {
 	int	*flag;
 
@@ -92,4 +92,3 @@ void	delete_list(t_ans *lst)
 	ft_strdel(&lst->cmd);
 	ft_memdel((void *)&lst);
 }
-

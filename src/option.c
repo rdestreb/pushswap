@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 12:43:46 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/20 18:02:45 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/03/30 14:41:18 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ int			*get_flag(void)
 static void	print_help(void)
 {
 	ft_putstr_fd("Usage: ./push_swap -help [-vnbri] [digit1 digit2 ...]\n", 2);
-	ft_putstr_fd("  Default action is to sort a list without duplicate of\n", 2);
-	ft_putstr_fd("  integers passed as arguments, then write the actions\n", 2);
-	ft_putstr_fd("  done in stdout. 2 algos are used, compared,\n", 2);
+	ft_putstr_fd("  Default action is to sort a list without duplicates\n", 2);
+	ft_putstr_fd("  of integers passed as arguments, then write the\n", 2);
+	ft_putstr_fd("  actions done in stdout using the 'push-swap' rules.\n", 2);
+	ft_putstr_fd("  2 algos are used ('Rot-Swap' vs 'Insertion'),\n", 2);
 	ft_putstr_fd("  then the best one (shorter answer) is picked.\n\n", 2);
 	ft_putstr_fd("    -v  verbose\n", 2);
 	ft_putstr_fd("    -n  write number of actions needed in stdout\n", 2);
@@ -48,7 +49,8 @@ static void	illegal_option(char *arg)
 		{
 			ft_putstr_fd("push_swap: illegal option -- ", 2);
 			ft_putchar_fd(arg[i], 2);
-			ft_putstr_fd("\nusage: push_swap [-vnbri] [digit1 digit2 ...]\n", 2);
+			ft_putstr_fd("\nusage: push_swap [-vnbri] [digit1 digit2 ...]\n"
+						, 2);
 			exit(2);
 		}
 	}
@@ -66,15 +68,15 @@ int			init_flags(int ac, char **av)
 		if (!(ft_strcmp(av[i], "-help")))
 			print_help();
 		illegal_option(av[i]);
-		if(ft_strchr(av[i], 'v'))
+		if (ft_strchr(av[i], 'v'))
 			*flag |= VERBOSE;
-		if(ft_strchr(av[i], 'n'))
+		if (ft_strchr(av[i], 'n'))
 			*flag |= NB_OP;
-		if(ft_strchr(av[i], 'b'))
+		if (ft_strchr(av[i], 'b'))
 			*flag |= BEST_ALGO;
-		if(ft_strchr(av[i], 'r'))
+		if (ft_strchr(av[i], 'r'))
 			*flag |= R_S;
-		if(ft_strchr(av[i], 'i'))
+		if (ft_strchr(av[i], 'i'))
 			*flag |= INS;
 	}
 	return (i - 1);

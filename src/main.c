@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 15:56:18 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/20 19:57:49 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/03/30 14:46:07 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	comp_algo(t_stack *a, t_stack *b, int ac, char **av)
 	display(ans1, ans2, a, b);
 }
 
-int	main(int ac, char **av)
+int		main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -66,7 +66,5 @@ int	main(int ac, char **av)
 		print_stack(b);
 	}
 	comp_algo(a, b, ac, av);
-	//	ft_memdel((void *)&a);
-//	ft_memdel((void *)&b);
 	return (0);
 }

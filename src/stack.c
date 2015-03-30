@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 16:31:32 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/20 19:44:13 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/03/30 14:42:15 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_stack	*create_stack(char **av, int ac, int size, char name)
 {
 	t_stack	*st;
-	int 	i;
+	int		i;
 
 	if (!(st = (t_stack *)ft_memalloc(sizeof(t_stack))))
 		print_error ("malloc failed\n");

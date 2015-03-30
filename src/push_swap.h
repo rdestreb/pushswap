@@ -6,7 +6,7 @@
 /*   By: rdestreb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 15:52:46 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/02/20 19:53:15 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/03/30 14:41:50 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ struct	s_stack
 
 struct	s_ans
 {
-	char 	*cmd;
+	char	*cmd;
 	t_stack	*a;
 	t_stack	*b;
 	int		cpt;
